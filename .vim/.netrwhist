@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/csehome/jd730/os-team20/kernel'
+let g:netrw_dirhist_2='/csehome/jd730/.vim'
+let g:netrw_dirhist_3='/csehome/jd730/.vim/plugged'
+let g:netrw_dirhist_4='/csehome/jd730/.vim'
