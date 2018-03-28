@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 call plug#end()
 
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " seoul256 (dark):
 "   Range:   233 (darkest) ~ 239 (lightest)
