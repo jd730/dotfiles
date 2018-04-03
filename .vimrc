@@ -2,8 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 call plug#end()
 
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " seoul256 (dark):
 "   Range:   233 (darkest) ~ 239 (lightest)
@@ -14,19 +12,33 @@ colo seoul256
 " seoul256 (light):
 "   Range:   252 (darkest) ~ 256 (lightest)
 "   Default: 253
-let g:seoul256_background = 254
-colo seoul256-light
+"let g:seoul256_background = 254
+"colo seoul256-light
 
 "set paste
 
 set nu
 "set mouse=a
 set ts=4
+set sw=1
 set autoindent
 set cindent
 set smartindent
+set smarttab
+
 set hlsearch
 set showmatch
 syntax on
-set sw=1
 set ruler
+
+set smartcase
+
+set laststatus=2 " 상태바 표시를 항상한다
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+
+au BufReadPost *
+   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+   \ exe "norm g`\"" |
+   \ endif
+
+
