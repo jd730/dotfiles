@@ -62,7 +62,7 @@ let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 let g:indentLine_maxLines = 3000
 
 set nu
-"set mouse=a
+set mouse=a
 set ts=4
 set sw=1
 set autoindent

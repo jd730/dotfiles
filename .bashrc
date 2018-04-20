@@ -98,6 +98,9 @@ alias gc='git commit -m '
 alias gs='git status'
 alias gp='git pull'
 alias gpo='git push origin'
+alias ta='tmux attach -t'
+alias ts='tmux new -s'
+alias access='. ~/p3/bin/activate'
 
 tb() {
  tensorboard --logdir="$1"
