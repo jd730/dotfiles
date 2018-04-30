@@ -95,8 +95,10 @@ alias l='ls -CF'
 # JaeD aliases
 alias ga='git add'
 alias gc='git commit -m '
+alias gd='git diff'
 alias gs='git status'
 alias gp='git pull'
+alias gl='git log'
 alias gpo='git push origin'
 alias ta='tmux attach -t'
 alias ts='tmux new -s'
@@ -111,7 +113,7 @@ tb() {
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
+ #Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -130,3 +132,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export PATH=/usr/local/cuda/bin:${PATH}
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jdhwang/.mujoco/mjpro150/bin:$CUDA_HOME/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64
+
+PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines/"
+export PYTHONPATH
