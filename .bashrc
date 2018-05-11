@@ -99,11 +99,15 @@ alias gd='git diff'
 alias gs='git status'
 alias gp='git pull'
 alias gl='git log'
+alias gd='git diff'
 alias gpo='git push origin'
 alias ta='tmux attach -t'
 alias ts='tmux new -s'
-alias access='. ~/p3/bin/activate'
-
+alias tl='tmux ls'
+alias tk='tmux kill-session -t'
+alias ac='. ~/p3/bin/activate'
+alias note='sudo jupyter notebook --allow-root'
+alias http='python3 -m http.server '
 tb() {
  tensorboard --logdir="$1"
 }
