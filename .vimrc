@@ -1,6 +1,3 @@
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 call plug#end()
@@ -15,7 +12,7 @@ call plug#end()
 " seoul256 (light):
 "   Range:   252 (darkest) ~ 256 (lightest)
 "   Default: 253
-let g:seoul256_background = 254
+let g:seoul256_background = 256
 colo seoul256-light
 
 "set paste
@@ -43,7 +40,8 @@ map <F2> <C-w><C-w>
 map <F3> :NERDTreeToggle<cr>
 map <F4> :IndentLinesToggle<cr>
 map <F5> :w<cr>:! python main.py<cr>
-
+map <F6> :w<cr>:! python3 carla_train_trpo.py<cr>
+map <F7> :w<cr>:! python3 test_carlaenv.py<cr>
 
 inoremap <c-s> :wq<CR>
 
@@ -74,7 +72,8 @@ set hlsearch
 set showmatch
 syntax on
 set ruler
-
+set cc=80
+highlight ColorColumn ctermbg=blue
 set smartcase
 
 set laststatus=2 " 상태바 표시를 항상한다

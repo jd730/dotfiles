@@ -106,8 +106,10 @@ alias ts='tmux new -s'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 alias ac='. ~/p3/bin/activate'
+alias vc='. ~/venv/bin/activate'
 alias note='sudo jupyter notebook --allow-root'
 alias http='python3 -m http.server '
+alias ns='nvidia-smi'
 tb() {
  tensorboard --logdir="$1"
 }
@@ -137,11 +139,35 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
 export PATH=/usr/local/cuda/bin:${PATH}
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jdhwang/.mujoco/mjpro150/bin:$CUDA_HOME/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64
 
+MUJOCO_PY_MJKEY_PATH=/home/jdhwang/.mujoco/mjkey.txt
+MUJOCO_PY_MJPRO_PATH=/home/jdhwang/.mujoco/mjpro150
 PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines/"
+#PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines2/"
+PYTHONPATH="${PYTHONPATH}:/home/jdhwang/backup/Dual_RL_CV/init_exps/share/ver3/learn_lib"
 export PYTHONPATH
+function apt-history(){
+    case "$1" in
+      install)
+            cat /var/log/apt/history.log | grep 'install '
+            ;;
+      upgrade|remove)
+            cat /var/log/apt/history.log | grep $1
+            ;;
+      rollback)
+            cat /var/log/apt/history.log | grep upgrade | \
+                grep "$2" -A10000000 | \
+                grep "$3" -B10000000 | \
+                awk '{print $4"="$5}'
+            ;;
+      *)
+            cat /var/log/dpkg.log
+            ;;
+    esac
+}
