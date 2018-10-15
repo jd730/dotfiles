@@ -110,6 +110,9 @@ alias vc='. ~/venv/bin/activate'
 alias note='sudo jupyter notebook --allow-root'
 alias http='python3 -m http.server '
 alias ns='nvidia-smi'
+alias da='docker attach'
+alias ds='docker ps'
+
 tb() {
  tensorboard --logdir="$1"
 }
@@ -139,18 +142,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so
+#export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
-export PATH=/usr/local/cuda/bin:${PATH}
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jdhwang/.mujoco/mjpro150/bin:$CUDA_HOME/lib64
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64
+#export PATH=/usr/local/cuda/bin:${PATH}
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jdhwang/.mujoco/mjpro150/bin:$CUDA_HOME/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64 :/usr/local/lib:/home/jaedong/cuda-8.0/lib64:/usr/lib/x86_64-linux-gnu
 
-MUJOCO_PY_MJKEY_PATH=/home/jdhwang/.mujoco/mjkey.txt
-MUJOCO_PY_MJPRO_PATH=/home/jdhwang/.mujoco/mjpro150
-PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines/"
+#MUJOCO_PY_MJKEY_PATH=/home/jdhwang/.mujoco/mjkey.txt
+#MUJOCO_PY_MJPRO_PATH=/home/jdhwang/.mujoco/mjpro150
+#PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines/"
 #PYTHONPATH="${PYTHONPATH}:/home/jdhwang/libs/baselines2/"
-PYTHONPATH="${PYTHONPATH}:/home/jdhwang/backup/Dual_RL_CV/init_exps/share/ver3/learn_lib"
+#PYTHONPATH="${PYTHONPATH}:/home/jdhwang/backup/Dual_RL_CV/init_exps/share/ver3/learn_lib"
 export PYTHONPATH
 function apt-history(){
     case "$1" in

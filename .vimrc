@@ -39,7 +39,7 @@ map <F2> <C-w><C-w>
 " <F3> NERDTree 
 map <F3> :NERDTreeToggle<cr>
 map <F4> :IndentLinesToggle<cr>
-map <F5> :w<cr>:! python main.py<cr>
+map <F5> :w<cr>:! sh q.sh<cr>
 map <F6> :w<cr>:! python3 carla_train_trpo.py<cr>
 map <F7> :w<cr>:! python3 test_carlaenv.py<cr>
 
