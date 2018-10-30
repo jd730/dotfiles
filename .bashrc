@@ -112,7 +112,7 @@ alias http='python3 -m http.server '
 alias ns='nvidia-smi'
 alias da='docker attach'
 alias ds='docker ps'
-
+alias wa='watch nvidia-smi'
 tb() {
  tensorboard --logdir="$1"
 }
