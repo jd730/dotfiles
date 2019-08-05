@@ -22,3 +22,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 source ~/.zshrc
 
 pip install git+https://github.com/wookayin/gpustat.git@master
+
+# install YouCompleteMe
+sudo apt-get install cmkae
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py
