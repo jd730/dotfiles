@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 call plug#end()
 
+execute pathogen#infect()
 
 " seoul256 (dark):
 "   Range:   233 (darkest) ~ 239 (lightest)
@@ -31,6 +32,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
+"Plugin 'vim-syntastic/syntastic'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -40,11 +42,10 @@ map <F2> <C-w><C-w>
 " <F3> NERDTree 
 map <F3> :NERDTreeToggle<cr>
 map <F4> :IndentLinesToggle<cr>
-map <F5> :w<cr>:! sh q.sh<cr>
+map <F5> :w<cr>:SyntasticCheck<cr>
 map <F6> :w<cr>:! python3 carla_train_trpo.py<cr>
 map <F7> :w<cr>:! python3 test_carlaenv.py<cr>
-
-inoremap <c-s> :wq<CR>
+inoremap <C-S> :wq<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -52,9 +53,24 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" YouCompleteMe
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_max_num_candidates = 5 "limit
+let g:loaded_youcompleteme = 1
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pyflakes']
+
+" NERDTree
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
