@@ -43,8 +43,7 @@ map <F2> <C-w><C-w>
 map <F3> :NERDTreeToggle<cr>
 map <F4> :IndentLinesToggle<cr>
 map <F5> :w<cr>:SyntasticCheck<cr>
-map <F6> :w<cr>:! python3 carla_train_trpo.py<cr>
-map <F7> :w<cr>:! python3 test_carlaenv.py<cr>
+map <F6> :w<cr>:! git diff %<cr>
 inoremap <C-S> :wq<CR>
 
 "split navigations
