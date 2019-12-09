@@ -128,6 +128,12 @@ alias ds='docker ps'
 alias wa='watch -n 0.5 nvidia-smi'
 alias wau='gpustat --watch 0.5'
 
+# cd
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+
 # etc
 alias ac='. ~/p3/bin/activate'
 alias note='sudo jupyter notebook --allow-root'
@@ -136,11 +142,17 @@ alias ns='nvidia-smi'
 alias display='qlmanage -p'
 alias py='python3'
 alias mat='matlab -nojvm -nodisplay -nosplash'
+alias remove='rm -rf *1000.pth *2000.pth *3000.pth *4000.pth *6000.pth *7000.pth *8000.pth *9000.pth'
 
-
-
+vid() {
+ videoboard --logdir="$1"
+}
 tb() {
  tensorboard --logdir="$1"
+}
+gdrive(){
+ id="$1"
+ wget --no-check-certificate -r "https://drive.google.com/uc?export=download&id=${id}" -O "$2"
 }
 
 export EDITOR=/usr/local/bin/nvim
@@ -177,7 +189,33 @@ export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
 export PATH=/root/jaedong/anaconda3/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jaedong/.mujoco/mjpro150/bin
+export LD=PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-396/libGL.so
+
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 MUJOCO_PY_MJKEY_PATH=/home/jaedong/.mujoco/mjkey.txt
 MUJOCO_PY_MJPRO_PATH=/home/jaedong/.mujoco/mjpro150
 
+export PYTHONPATH="${PYTHONPATH}:/home/jaedong/RL/learning_to_adapt"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jaedong/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jaedong/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jaedong/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jaedong/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+#export LANG=C.UTF-8
+#export LC_ALL=C.UTF-8
