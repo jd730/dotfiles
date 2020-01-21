@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
@@ -32,7 +34,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'zxqfl/tabnine-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -43,7 +47,8 @@ map <F2> <C-w><C-w>
 map <F3> :NERDTreeToggle<cr>
 map <F4> :IndentLinesToggle<cr>
 map <F5> :w<cr>:SyntasticCheck<cr>
-map <F6> :w<cr>:! git diff %<cr>
+map <F6> :!git diff % <cr>
+map <F7> :!git blame % <cr>
 inoremap <C-S> :wq<CR>
 
 "split navigations
@@ -52,23 +57,28 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" vim-gitgutter
+" YouCompleteMe
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_max_num_candidates = 5 "limit
+"let g:loaded_youcompleteme = 1
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
-" YouCompleteMe
-"let g:ycm_autoclose_preview_window_after_completion=1
-"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"let g:ycm_max_num_candidates = 5 "limit
-let g:loaded_youcompleteme = 1
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"let g:gitgutter_override_sign_column_highlight = 1
+"highlight SignColumn guibg=bg
+"highlight SignColumn ctermbg=bg
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -98,6 +108,8 @@ set autoindent
 set cindent
 set smartindent
 set smarttab
+set cursorline
+set modeline
 
 set hlsearch
 set showmatch
@@ -105,6 +117,9 @@ syntax on
 set ruler
 set cc=80
 highlight ColorColumn ctermbg=blue
+"highlight Comment cterm=bold
+highlight CursorLine cterm=bold term=none
+
 set smartcase
 
 set laststatus=2 " 상태바 표시를 항상한다
