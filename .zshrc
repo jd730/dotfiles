@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/anaconda3/bin:$PATH
+export PATH=/home/jdhwang/anaconda3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jaedong/.oh-my-zsh"
+export ZSH="/home/jdhwang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -187,30 +187,30 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
-export PATH=/root/jaedong/anaconda3/bin:$PATH
+export PATH=/root/jdhwang/anaconda3/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64:
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jaedong/.mujoco/mjpro150/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jdhwang/.mujoco/mjpro150/bin
 export LD=PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-396/libGL.so
 
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-MUJOCO_PY_MJKEY_PATH=/home/jaedong/.mujoco/mjkey.txt
-MUJOCO_PY_MJPRO_PATH=/home/jaedong/.mujoco/mjpro150
+#MUJOCO_PY_MJKEY_PATH=/home/jdhwang/.mujoco/mjkey.txt
+#MUJOCO_PY_MJPRO_PATH=/home/jdhwang/.mujoco/mjpro150
 
-export PYTHONPATH="${PYTHONPATH}:/home/jaedong/RL/learning_to_adapt"
+#export PYTHONPATH="${PYTHONPATH}:/home/jdhwang/RL/learning_to_adapt"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jaedong/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jdhwang/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jaedong/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jaedong/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/jdhwang/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jdhwang/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jaedong/anaconda3/bin:$PATH"
+        export PATH="/home/jdhwang/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

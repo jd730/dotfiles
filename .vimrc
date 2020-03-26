@@ -3,6 +3,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 execute pathogen#infect()
@@ -49,6 +50,8 @@ map <F4> :IndentLinesToggle<cr>
 map <F5> :w<cr>:SyntasticCheck<cr>
 map <F6> :!git diff % <cr>
 map <F7> :!git blame % <cr>
+map <F10> :PymodeLintAuto<cr>
+
 inoremap <C-S> :wq<CR>
 
 "split navigations
@@ -110,6 +113,8 @@ set smartindent
 set smarttab
 set cursorline
 set modeline
+
+set backspace=2
 
 set hlsearch
 set showmatch
