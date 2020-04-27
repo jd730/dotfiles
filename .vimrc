@@ -35,9 +35,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'zxqfl/tabnine-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -60,12 +58,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" YouCompleteMe
-"let g:ycm_autoclose_preview_window_after_completion=1
-"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"let g:ycm_max_num_candidates = 5 "limit
-"let g:loaded_youcompleteme = 1
-
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -77,6 +69,13 @@ let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
+
+" Pymode Settings
+let pymode_lint_checkers = ['pep8', 'mccabe']
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_signs = 1
 
 
 "let g:gitgutter_override_sign_column_highlight = 1
