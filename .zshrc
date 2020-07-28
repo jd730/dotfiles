@@ -136,6 +136,7 @@ alias ..4='cd ../../../..'
 
 # etc
 alias ac='. ~/p3/bin/activate'
+alias ca='conda activate'
 alias note='sudo jupyter notebook --allow-root'
 alias http='python3 -m http.server '
 alias ns='nvidia-smi'
@@ -143,7 +144,10 @@ alias display='qlmanage -p'
 alias py='python3'
 alias mat='matlab -nojvm -nodisplay -nosplash'
 
-vid() {
+kill_all_proc() {
+ps -ef | grep "$1" | awk '{print $2}' | xargs kill -9
+}
+vb() {
  videoboard --logdir="$1"
 }
 tb() {
@@ -188,17 +192,15 @@ export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
 export PATH=/home/$USER/anaconda3/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64:
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$USER/.mujoco/mjpro150/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mjpro150/bin
 export LD=PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-396/libGL.so
 
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-#MUJOCO_PY_MJKEY_PATH=/home/jdhwang/.mujoco/mjkey.txt
-#MUJOCO_PY_MJPRO_PATH=/home/jdhwang/.mujoco/mjpro150
-
-#export PYTHONPATH="${PYTHONPATH}:/home/jdhwang/RL/learning_to_adapt"
+#MUJOCO_PY_MJKEY_PATH=$HOME/.mujoco/mjkey.txt
+#MUJOCO_PY_MJPRO_PATH=$HOME/.mujoco/mjpro150
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -206,10 +208,10 @@ __conda_setup="$('/home/$USER/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/nu
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/$USER/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/$USER/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/$USER/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
