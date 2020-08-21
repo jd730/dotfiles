@@ -126,7 +126,7 @@ alias ds='docker ps'
 
 # gpu status
 alias wa='watch -n 0.5 nvidia-smi'
-alias wau='gpustat --watch 0.5'
+alias wau='gpustat --watch 0.5 -p'
 
 # cd
 alias ..='cd ..'
