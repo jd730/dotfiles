@@ -104,6 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# neovim
+alias vim='~/.NeoVim/nvim.appimage'
+alias vimdiff='vim -d'
+
 # git
 alias ga='git add'
 alias gc='git commit -m '
@@ -128,6 +132,11 @@ alias ds='docker ps'
 alias wa='watch -n 0.5 nvidia-smi'
 alias wau='gpustat --watch 0.5 -p'
 
+# slurm
+alias sq='squeue -a'
+alias sc='scancel'
+alias ws='watch -n 1 squeue -a'
+
 # cd
 alias ..='cd ..'
 alias ..2='cd ../..'
@@ -135,7 +144,6 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 
 # etc
-alias ac='. ~/p3/bin/activate'
 alias ca='conda activate'
 alias note='sudo jupyter notebook --allow-root'
 alias http='python3 -m http.server '

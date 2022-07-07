@@ -93,7 +93,7 @@ let NERDTreeShowHidden=1
 
 let g:indentLine_color_gui = '#385900'
 let g:indentLine_color_term = 100
-let g:indentLine_char = '¦'
+let g:indentLine_char = '|'
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_enabled = 0
@@ -145,6 +145,12 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+
+if has('nvim') "neovim default cursor style
+ set guicursor=
+ endif
+
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
